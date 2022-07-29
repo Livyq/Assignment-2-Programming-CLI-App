@@ -3,6 +3,13 @@ const ps = require('prompt-sync');//load prompt-sync module
 const prompt = ps(); // call ps function 
 const musoFunctions=require('./musoFunction.js')
 
+const rootMenuList = [
+    'Create a musician','Create a musician','Create a troupe','Add musicians to a troupe',
+    'Troupe summary description','Troupe detailed description','Show hourly cost for a troupe',
+    'Show troupe names','Write troupe details to a file','Exit'
+]
+
+const instrumentList = ['Guitarist','Bassist','Percussionist','Flautist']
 
 
 // user choose from eight options 
