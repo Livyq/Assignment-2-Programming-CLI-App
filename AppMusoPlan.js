@@ -7,12 +7,16 @@ const musoFunctions=require('./musoFunction.js')
 
 // user choose from eight options 
 while (true){
+    let choice = listInput(rootMenuList);
     if (choice == 0){
         //show input to users
         console.log('======================================');
+        console.log(musoFunctions.listInput("Please select your instructment", rootMenuList));
+        
     }
     // option 1 create a musician
     else if(choice == 1){ 
+        musoFunctions.listInput(instrumentList); 
         choice = 0;
     }
     else if(choice == 2){
