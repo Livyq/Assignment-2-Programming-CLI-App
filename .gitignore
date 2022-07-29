@@ -1,0 +1,5 @@
+*.docx
+*.eddx
+node_modules/*
+/Archive
+/General info
