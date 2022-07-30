@@ -10,7 +10,7 @@ const inputFunction = require("./inputFunction.js");
 const instrumentList = ["Guitarist", "Bassist", "Percussionist", "Flautist"];
 var musicianList = new Array();
 
-function addMusician() {
+function createMusician() {
   let musician;
   // instrumentChoice will be any of 1, 2, 3 or 4(index)
   let instrumentChoice = inputFunction.listInput(
@@ -44,4 +44,4 @@ function addMusician() {
   console.log('======================================');
   console.log(musicianList);
 }
-module.exports = {addMusician}
+module.exports = {createMusician}

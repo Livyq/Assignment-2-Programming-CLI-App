@@ -3,6 +3,7 @@ const ps = require('prompt-sync');//load prompt-sync module
 const prompt = ps(); // call ps function 
 const inputFunction=require('./inputFunction.js')
 const musicianFunction=require('./musicianFunction.js')
+const troupeFunction=require('./troupeFunction.js')
 
 const rootMenuList = [
     'Create a musician',
@@ -17,7 +18,7 @@ const rootMenuList = [
 ]
 
 
-const genreList = ['rock','jazz','pop'];
+
 
 var choice = 0;
 
@@ -33,13 +34,14 @@ while (true){
     }
     // option 1 create a musician
     else if(choice == 1){
-        musicianFunction.addMusician();
+        musicianFunction.createMusician();
         console.log('======================================');
         choice = 0;
     }
 
     else if(choice == 2){
-        
+        troupeFunction.createTroupe();
+        console.log('======================================');
         choice = 0;
     }
     else if(choice == 3){

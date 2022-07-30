@@ -5,7 +5,7 @@ class Musician {
     this.yearOfPlaying = yearOfPlaying;
     this.hourlyRate = hourlyRate;
     
-    // this.troupes = [];
+    this.troupes = [];
   }
 
   addToTroupe(troupe) {
