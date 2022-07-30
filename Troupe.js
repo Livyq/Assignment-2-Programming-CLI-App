@@ -15,3 +15,4 @@ class Troupe {
     return `${this.name} is a ${this.genre} troupe that has ${this.musicians.length} musicians.`;
   }
 }
+module.exports = { Troupe };

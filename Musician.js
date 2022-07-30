@@ -1,10 +1,11 @@
 class Musician {
-  constructor(name,yearOfPlaying, hourlyRate) {
+  constructor(name, yearOfPlaying, hourlyRate) {
+    this.instrument = "";
     this.name = name;
-    this.instrument = instrument;
     this.yearOfPlaying = yearOfPlaying;
     this.hourlyRate = hourlyRate;
-    this.troupes = [];
+    
+    // this.troupes = [];
   }
 
   addToTroupe(troupe) {
@@ -16,4 +17,7 @@ class Musician {
   details() {
     return `${this.name} is a ${this.instrument} musician that has been playing for ${this.yearOfPlaying} and makes ${this.hourlyRate} per hour.`;
   }
+  funFact() {}
 }
+
+module.exports = { Musician };
