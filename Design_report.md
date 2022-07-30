@@ -5,6 +5,7 @@
     * Name (between 3 and characters)
     * Yeas of playing 
     * Hourly rate 
+    * instrument
 2. Methods:
     * displayFacts 
     * displayMusiciansIntro
