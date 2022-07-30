@@ -21,7 +21,7 @@ function listInput(text, list) {
       // validate choice
       // if the choice within range, return the chosen index
       if (choice >= 1 && choice <= list.length) {
-        return choice  ;
+        return choice - 1;
       } else {
         // if invalid, continue the loop
         console.log("ERROR, please enter the number within given range");

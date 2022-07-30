@@ -1,9 +1,8 @@
 // get input from the user.
 const ps = require('prompt-sync');//load prompt-sync module
 const prompt = ps(); // call ps function 
-const inputFunction=require('./inputFunction.js')
-const musicianFunction=require('./musicianFunction.js')
-const troupeFunction=require('./troupeFunction.js')
+const inputFunction = require('./inputFunction.js')
+const operationFunction = require('./operationFunction.js')
 
 const rootMenuList = [
     'Create a musician',
@@ -17,53 +16,47 @@ const rootMenuList = [
     'Exit'
 ]
 
-
-
-
-var choice = 0;
-
-
+var choice = -1;
 // user choose from eight options 
 while (true){
   
-    if (choice == 0){
+    if (choice === -1){
         //show input to users
         console.log('======================================');
         console.log("Main Menu")
         choice = inputFunction.listInput("Please enter your choice [1,2,3,4,5,6,7,8,9]", rootMenuList); 
     }
     // option 1 create a musician
-    else if(choice == 1){
-        musicianFunction.createMusician();
+    else if(choice === 0){
+        operationFunction.createMusician();
         console.log('======================================');
-        choice = 0;
+        choice = -1;
     }
 
-    else if(choice == 2){
-        troupeFunction.createTroupe();
+    else if(choice === 1){
+        operationFunction.createTroupe();
         console.log('======================================');
-        choice = 0;
+        choice = -1;
     }
-    else if(choice == 3){
-
-
+    else if(choice === 2){
+        operationFunction.addMusicianToTroupe();
     }
-    else if(choice == 4){
-
-    }
-    else if(choice == 5){
+    else if(choice === 3){
 
     }
-    else if(choice == 6){
+    else if(choice === 4){
 
     }
-    else if(choice == 7){
+    else if(choice === 5){
 
     }
-    else if(choice == 8){
+    else if(choice === 6){
 
     }
-    else if(choice == 9){
+    else if(choice === 7){
+
+    }
+    else if(choice === 8){
         break;
 
     }
