@@ -116,5 +116,24 @@ function stringInput(text,condition){
        
     }
 }
+//continue function 
+/**
+ * @param string display text 
+ * @returns boolean
+ * 
+ */
+function usercontinue (text){
+    const option = ['Yes','YES','yes','y','Y',];
+    const userInputContinue = prompt(text);
+    let contineInput = option.includes(userInputContinue) 
+    if( contineInput == true ){
+        return contineInput
+    }else{
+        console.log('You can go back to the main menu.');
+    }
+}
 
-module.exports = {listInput,numberInput,stringInput}
+
+
+
+module.exports = {listInput,numberInput,stringInput,usercontinue}

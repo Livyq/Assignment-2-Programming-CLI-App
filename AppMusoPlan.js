@@ -17,7 +17,7 @@ const rootMenuList = [
 ]
 
 var choice = -1;
-// user choose from eight options 
+// user choose from eight options , choice ==> index
 while (true){
   
     if (choice === -1){
@@ -32,16 +32,24 @@ while (true){
         console.log('======================================');
         choice = -1;
     }
-
+    // option 2 create a troupe
     else if(choice === 1){
         operationFunction.createTroupe();
         console.log('======================================');
         choice = -1;
     }
+    //option 3 add musicians to a troupe
     else if(choice === 2){
         operationFunction.addMusicianToTroupe();
+        if (inputFunction.usercontinue("Do you want to select another troupe: ")) {
+            continue;
+          } else {
+            return
+          }
     }
+    //option 4 
     else if(choice === 3){
+        
 
     }
     else if(choice === 4){

@@ -21,7 +21,7 @@ function createMusician() {
     instrumentList
   );
   let name = inputFunction.stringInput(
-    "Please put in your name(3-30 characters): ",
+    "Please put in musician name(3-30 characters): ",
     { min: 3, max: 30 }
   );
   let yearOfPlaying = inputFunction.numberInput(
@@ -71,7 +71,7 @@ function createMusician() {
 // users create troupes
 function createTroupe() {
   let name = inputFunction.stringInput(
-    "Please put in your name(3-30 characters): ",
+    "Please put in troupe name(3-30 characters): ",
     { min: 3, max: 30 }
   );
   let minimumDuration = inputFunction.numberInput(
@@ -96,21 +96,35 @@ function createTroupe() {
 function addMusicianToTroupe() {
   //display troupe names in a list
   const troupeNameList = troupeList.map((troupe) => troupe.name);
+  const musicianNameList = musicianList.map((musician) => musician.name);
   // users choose a troupe and return array index
   let selectedTroupeIndex = inputFunction.listInput(
     "Please select a troupe:  ", troupeNameList
   );
   console.log("You have selected: " + troupeNameList[selectedTroupeIndex]);
-  // users choose musicians and return array index
-  let selecetedMusicianIndex = inputFunction.listInput(
-    "Please select musicians(no more than 5): ",
-    musicianList.map((musician) => musician.name)
-  );
-  // add to troupe porperty (musician)
-  troupeList[selectedTroupeIndex].addMusician(musicianList[selecetedMusicianIndex]);
-  musicianList[selecetedMusicianIndex].addToTroupe(troupeList[selectedTroupeIndex]);
-  console.log(troupeList)
 
+  // while loop to add musician until user end it 
+  while(true){
+    // users choose musicians and return array index
+    let selecetedMusicianIndex = inputFunction.listInput(
+    "Please select musicians(no more than 5): ",
+    //use map function to get the all names
+    musicianList.map((musician) => musician.name)
+    );
+    
+    //  use class troupe/Musician method (push)
+    troupeList[selectedTroupeIndex].addMusician(musicianNameList[selecetedMusicianIndex]);
+    musicianList[selecetedMusicianIndex].addToTroupe(selectedTroupeIndex);
+    
+    // to check if users want to continue or not
+    console.log(`You have selected troupe: ${troupeNameList[selectedTroupeIndex]} and musicians: ${musicianNameList[selecetedMusicianIndex]}`)
+    if (inputFunction.usercontinue("Contiue to add musicians to the same troupe: ")) {
+      continue;
+    } else {
+      console.log(troupeList[selectedTroupeIndex])
+      return;
+    }
+  }
 }
 
 module.exports = { createMusician, createTroupe, addMusicianToTroupe };
