@@ -24,7 +24,7 @@ while (true){
         //show input to users
         console.log('======================================');
         console.log("Main Menu")
-        choice = inputFunction.listInput("Please enter your choice [1,2,3,4,5,6,7,8,9]", rootMenuList); 
+        choice = inputFunction.listInput("Please enter your choice [1,2,3,4,5,6,7,8,9]: ", rootMenuList); 
     }
     // option 1 create a musician
     else if(choice === 0){
@@ -41,20 +41,27 @@ while (true){
     //option 3 add musicians to a troupe
     else if(choice === 2){
         operationFunction.addMusicianToTroupe();
-        if (inputFunction.usercontinue("Do you want to select another troupe: ")) {
+        console.log('======================================');
+        if (inputFunction.usercontinue("Do you want to select another troupe Y or N: ")) {
             continue;
           } else {
-            return
+            choice = -1;
           }
     }
     //option 4 
     else if(choice === 3){
-        
-
+        operationFunction.displayTroupeSummary()
+        console.log('======================================');
+        choice = -1;
     }
+    // option 5 
     else if(choice === 4){
+        operationFunction.displayDetailsDesription();
+        console.log('======================================');
+        choice = -1;
 
     }
+    //option 6
     else if(choice === 5){
 
     }

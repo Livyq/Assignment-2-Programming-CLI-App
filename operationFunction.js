@@ -12,7 +12,7 @@ var troupeList = new Array();
 const genreList = ["rock", "jazz", "pop"];
 const instrumentList = ["Guitarist", "Bassist", "Percussionist", "Flautist"];
 
-// users create musicians
+// option 1_users create musicians
 function createMusician() {
   let musician;
   // instrumentChoice will be any of 1, 2, 3 or 4(index)
@@ -68,7 +68,7 @@ function createMusician() {
   console.log(musicianList);
 }
 
-// users create troupes
+// option_users create a troupe
 function createTroupe() {
   let name = inputFunction.stringInput(
     "Please put in troupe name(3-30 characters): ",
@@ -79,7 +79,7 @@ function createTroupe() {
     { type: "float", min: 0.5, max: 3 }
   );
   let genreIndex = inputFunction.listInput(
-    "Please select one genre",
+    "Please select one genre: ",
     genreList
   );
   const newTroupe = new Troupe(
@@ -92,7 +92,7 @@ function createTroupe() {
   console.log(troupeList);
 }
 
-// // add musicians to a troupe, no more than 5 musicians
+// option 3_add musicians to a troupe, no more than 5 musicians function
 function addMusicianToTroupe() {
   //display troupe names in a list
   const troupeNameList = troupeList.map((troupe) => troupe.name);
@@ -103,28 +103,66 @@ function addMusicianToTroupe() {
   );
   console.log("You have selected: " + troupeNameList[selectedTroupeIndex]);
 
+  let errorMessage = "Sorry, no more than 5 musicians in a troupe."
   // while loop to add musician until user end it 
   while(true){
+    let currentTroupe = troupeList[selectedTroupeIndex];
+    if (currentTroupe.musicians.length >= 5){
+      console.log(errorMessage);
+      break
+    }
     // users choose musicians and return array index
     let selecetedMusicianIndex = inputFunction.listInput(
-    "Please select musicians(no more than 5): ",
-    //use map function to get the all names
-    musicianList.map((musician) => musician.name)
+      "Please select musicians(no more than 5): ",
+      //use map function to get the all names(new array)
+      musicianList.map((musician) => musician.name)
     );
     
     //  use class troupe/Musician method (push)
-    troupeList[selectedTroupeIndex].addMusician(musicianNameList[selecetedMusicianIndex]);
-    musicianList[selecetedMusicianIndex].addToTroupe(selectedTroupeIndex);
+    troupeList[selectedTroupeIndex].addMusician(musicianList[selecetedMusicianIndex]);
+    musicianList[selecetedMusicianIndex].addToTroupe(troupeNameList[selectedTroupeIndex]);
     
     // to check if users want to continue or not
-    console.log(`You have selected troupe: ${troupeNameList[selectedTroupeIndex]} and musicians: ${musicianNameList[selecetedMusicianIndex]}`)
-    if (inputFunction.usercontinue("Contiue to add musicians to the same troupe: ")) {
+    const displaySelectedMusicians = troupeList[selectedTroupeIndex].musicians.map((musician) => musician.name)
+    console.log(`You have selected troupe: ${troupeNameList[selectedTroupeIndex]} and musicians: ${displaySelectedMusicians}`)
+    if (inputFunction.usercontinue("Contiue to add musicians Y or N: ")) {
       continue;
     } else {
-      console.log(troupeList[selectedTroupeIndex])
+      console.log(`You have selsected ${troupeNameList[selectedTroupeIndex]} troupe and it includes musicians: ${musicianNameList[selecetedMusicianIndex]}`)
       return;
     }
   }
 }
 
-module.exports = { createMusician, createTroupe, addMusicianToTroupe };
+// option 4_display troupe summary description function
+function displayTroupeSummary(){
+  //display all troupes name in a list
+  const troupeNameList = troupeList.map((troupe) => troupe.name);
+  let selectedTroupeIndex = inputFunction.listInput(
+    "Please select a troupe:  ", troupeNameList
+  );
+  troupeList[selectedTroupeIndex].displaySummaryDetails();
+  troupeList[selectedTroupeIndex].countInstrument();
+  troupeList[selectedTroupeIndex].hourlyRateWholeTroupe();
+}
+
+//option 5_display the troupe and musicians detailed description function 
+function displayDetailsDesription(){
+  const troupeNameList = troupeList.map((troupe) => troupe.name);
+  let selectedTroupeIndex = inputFunction.listInput(
+    "Please select a troupe:  ", troupeNameList
+  );
+  // troupeList[selectedTroupeIndex].displaySummaryDetails();
+  let details = troupeList[selectedTroupeIndex].displayDetailswithMusicians();
+  console.log(details)
+}
+
+
+//option 6_caculate the cost of deploying the troupe for a number of hours
+// get the sum of troupe houly rate
+ 
+
+
+
+module.exports = { createMusician, createTroupe,addMusicianToTroupe,displayTroupeSummary,
+  displayDetailsDesription};

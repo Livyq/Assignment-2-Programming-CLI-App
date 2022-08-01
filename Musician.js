@@ -18,6 +18,7 @@ class Musician {
     return `${this.name} is a ${this.instrument} musician that has been playing for ${this.yearOfPlaying} and makes ${this.hourlyRate} per hour.`;
   }
   funFact() {}
+  
 }
 
 module.exports = { Musician };

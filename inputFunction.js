@@ -129,7 +129,6 @@ function usercontinue (text){
     if( contineInput == true ){
         return contineInput
     }else{
-        console.log('You can go back to the main menu.');
     }
 }
 
