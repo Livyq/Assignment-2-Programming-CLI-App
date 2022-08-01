@@ -81,6 +81,7 @@ while (true) {
   //option 8
   else if (choice === 7) {
     operationFunction.writeTroupeListDetails();
+    
     console.log("======================================");
     choice = -1;
   }

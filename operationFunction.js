@@ -189,33 +189,28 @@ function caculateCost() {
 
 //option 7_read a list of troupe names to be populated from a file
 function readTroupeList() {
-  try {
-    const data = fs
-      .readFileSync("troupeList.txt", "utf8")
-      .toString()
-      .replace(/\r\n/g, "\n")
-      .split("\n");
-    console.log(data);
-  } catch (err) {
-    console.error(err);
-  }
-
+  const data = fs.readFileSync("troupeName.txt", "utf8");
+  
 }
 
 //option 8_write a list of the detailed descriptions for all troupes to a given file name
-function writeTroupeListDetails( ){
+function writeTroupeListDetails() {
   const troupeNameList = troupeList.map((troupe) => troupe.name);
   let selectedTroupeIndex = inputFunction.listInput(
     "Please select a troupe:  ",
     troupeNameList
   );
-  fs.writeFile(troupeList[selectedTroupeIndex] + ".txt", jsonData, function (err) {
-    if (err) {
-      console.log(err);
+  fs.writeFileSync(
+    troupeList[selectedTroupeIndex].name + ".txt",
+    JSON.stringify(troupeList[selectedTroupeIndex], null, 4),
+    function (err) {
+      if (err) {
+        console.log(err);
+      } else {
+      }
     }
-
-  });
-
+  );
+  console.log(`File written successfully`);
 }
 
 module.exports = {
@@ -226,5 +221,5 @@ module.exports = {
   displayDetailsDesription,
   caculateCost,
   readTroupeList,
-  writeTroupeListDetails
+  writeTroupeListDetails,
 };
