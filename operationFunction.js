@@ -153,16 +153,34 @@ function displayDetailsDesription(){
     "Please select a troupe:  ", troupeNameList
   );
   // troupeList[selectedTroupeIndex].displaySummaryDetails();
-  let details = troupeList[selectedTroupeIndex].displayDetailswithMusicians();
-  console.log(details)
+  troupeList[selectedTroupeIndex].displayDetailswithMusicians();
 }
 
 
 //option 6_caculate the cost of deploying the troupe for a number of hours
 // get the sum of troupe houly rate
- 
+function caculateCost(){
+  // select a troupe
+  const troupeNameList = troupeList.map((troupe) => troupe.name);
+  let selectedTroupeIndex = inputFunction.listInput(
+    "Please select a troupe:  ", troupeNameList
+  );
+  // put in hours users need
+  let hours = inputFunction.numberInput("Please put in hours(between 0.5 and 3): ",{type:float, min: 0.5, max: 3});
+  // hourly rate for whole troupe
+  // let sum = troupeList[selectedTroupeIndex].hourlyRateWholeTroupe();
+  troupeList[selectedTroupeIndex].countCostOfTroupeDeploying(hours);
+  // console.log(hours*sum);
+} 
+
+//option 7_read a list of troupe names to be populated from a file
+// function (){
+
+// }
+
+//option 8_write a list of the detailed descriptions for all troupes to a given file name
 
 
 
 module.exports = { createMusician, createTroupe,addMusicianToTroupe,displayTroupeSummary,
-  displayDetailsDesription};
+  displayDetailsDesription,caculateCost};

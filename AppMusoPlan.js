@@ -59,11 +59,12 @@ while (true){
         operationFunction.displayDetailsDesription();
         console.log('======================================');
         choice = -1;
-
     }
     //option 6
     else if(choice === 5){
-
+        operationFunction.caculateCost();
+        console.log('======================================');
+        choice = -1;
     }
     else if(choice === 6){
 

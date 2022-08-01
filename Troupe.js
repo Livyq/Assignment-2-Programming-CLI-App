@@ -8,8 +8,6 @@ class Troupe {
   addMusician(musician) {
     this.musicians.push(musician);
   }
- 
- 
   countInstrument(){
     const instrumentList = this.musicians.map((musician) => musician.instrument)
     let count = instrumentList.filter((value,index,a) => a.indexOf(value) === index).length;
@@ -31,9 +29,15 @@ class Troupe {
 
   //troupe details with musicians details
   displayDetailswithMusicians(){
-    return JSON.stringify(this);
-   
+    let details = JSON.stringify(this);
+    console.log(details);
   }
 
+  countCostOfTroupeDeploying(){
+    
+    console.log( this.minimumDuration * this.hourlyRateWholeTroupe)
+
+  }
 }
+
 module.exports = { Troupe };
