@@ -8,7 +8,7 @@ class Bassist extends Musician  {
   displayInstrumentDetail(){
     return `The musician is a ${this.instrument} `
   }
-  funFact(){
+  get funFact(){
     return "Everyone loves a bassist"
   }
 }

@@ -11,7 +11,7 @@ class Troupe {
   countInstrument(){
     const instrumentList = this.musicians.map((musician) => musician.instrument)
     let count = instrumentList.filter((value,index,a) => a.indexOf(value) === index).length;
-    console.log(`Total Total Instrument Number of ${this.name} is ${count}.`)
+    return`Total Total Instrument Number of ${this.name} is ${count}.`
   }
   hourlyRateWholeTroupe(){
     const troupeHourlyRate = this.musicians.map((musician) => musician.hourlyRate) 
@@ -20,23 +20,22 @@ class Troupe {
       (previousValue, currentValue) => previousValue + currentValue,
       initialValue
     );
-    console.log (`${this.name} Hourly Rate is ${sum}`);
+    return sum;
   }
    //troupe details only
    displaySummaryDetails() {
-    console.log(`You have selescted ${this.name}.\n${this.name} is a ${this.genre} troupe that has ${this.musicians.length} musicians.`) ;
+    return `You have selescted ${this.name}.\n${this.name} is a ${this.genre} troupe that has ${this.musicians.length} musicians.`;
   }
 
   //troupe details with musicians details
   displayDetailswithMusicians(){
-    let details = JSON.stringify(this);
-    console.log(details);
+    let details = JSON.stringify(this, null, 4);
+    return details;
   }
 
-  countCostOfTroupeDeploying(){
-    
-    console.log( this.minimumDuration * this.hourlyRateWholeTroupe)
-
+  countCostOfTroupeDeploying(hours){
+    let total = hours * this.hourlyRateWholeTroupe();
+    return total;
   }
 }
 

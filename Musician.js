@@ -17,8 +17,18 @@ class Musician {
   details() {
     return `${this.name} is a ${this.instrument} musician that has been playing for ${this.yearOfPlaying} and makes ${this.hourlyRate} per hour.`;
   }
-  funFact() {}
-  
+  get funFact() {}
+
+  toJSON() {
+    return {
+      name: this.name,
+      instrument: this.instrument,
+      yearOfPlaying: this.yearOfPlaying,
+      hourlyRate: this.hourlyRate,
+      troupes: this.troupes,
+      funFact: this.funFact,
+    }
+  }
 }
 
 module.exports = { Musician };

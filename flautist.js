@@ -8,7 +8,7 @@ class Flautist extends Musician  {
     displayInstrumentDetail(){
       return `The musician is a ${this.instrument} `
     }
-    funFact(){
+    get funFact(){
       return "1989 heavy metal instrument of the year"
     }
   }

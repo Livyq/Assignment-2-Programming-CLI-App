@@ -8,7 +8,7 @@ class Guitarist extends Musician  {
     displayInstrumentDetail(){
       return `The musician is a ${this.instrument} `
     }
-    funFact(){
+    get funFact(){
       return "The more strings you have, the better you are"
     }
   }

@@ -8,7 +8,7 @@ class Percussionist  extends Musician  {
     displayInstrumentDetail(){
       return `The musician is a ${this.instrument} `
     }
-    funFact(){
+    get funFact(){
       return "Me drum"
     }
   }
