@@ -3,13 +3,14 @@ class Musician {
     this.instrument = "";
     this.name = name;
     this.yearOfPlaying = yearOfPlaying;
-    this.hourlyRate = hourlyRate;
-    
+    this.hourlyRate = hourlyRate; 
     this.troupes = [];
   }
-
+  
   addToTroupe(troupe) {
-    this.troupes.push(troupe);
+    if (!this.troupes.includes(troupe)) {
+      this.troupes.push(troupe);
+    }
   }
   summary() {
     return `${this.name} is a ${this.instrument} musician that has been playing for ${this.yearOfPlaying} and makes ${this.hourlyRate} per hour.`;
@@ -21,7 +22,7 @@ class Musician {
 
   toJSON() {
     return {
-      name: this.name,
+      MusicianName: this.name,
       instrument: this.instrument,
       yearOfPlaying: this.yearOfPlaying,
       hourlyRate: this.hourlyRate,

@@ -69,7 +69,7 @@ function createMusician() {
   console.log(musicianList);
 }
 
-// option_users create a troupe
+// option 2 users create a troupe
 function createTroupe() {
   let name = inputFunction.stringInput(
     "Please put in troupe name(3-30 characters): ",
@@ -188,25 +188,43 @@ function caculateCost() {
 }
 
 //option 7_read a list of troupe names to be populated from a file
-function readTroupeList() {
-  const data = fs.readFileSync("troupeName.txt", "utf8");
-  
+var newTroupeList = new Array();
+function readTroupeList(filename) {
+  const data = fs.readFileSync(filename, { encoding: "utf8", flag: "r" }).split('\r\n');
+  // console.log(data);
+  // create objects and push to a new array
+
+  for (let element of data){
+    const newTroupe = new Troupe(element);
+    newTroupeList.push(newTroupe);
+  }
+  console.log(newTroupeList);
 }
+
 
 //option 8_write a list of the detailed descriptions for all troupes to a given file name
 function writeTroupeListDetails() {
   const troupeNameList = troupeList.map((troupe) => troupe.name);
-  let selectedTroupeIndex = inputFunction.listInput(
-    "Please select a troupe:  ",
-    troupeNameList
-  );
+  console.log(troupeNameList);
+  let selectedTroupeName = '';
+  while(true) {
+    selectedTroupeName = inputFunction.stringInput(
+      "Please put in a troupe name:  ",
+      {min: 3, max: 30}
+    );
+
+    if (troupeNameList.includes(selectedTroupeName)) {
+      break;
+    } 
+    console.log('ERROR, no this troupe!!');
+  }
+  
   fs.writeFileSync(
-    troupeList[selectedTroupeIndex].name + ".txt",
-    JSON.stringify(troupeList[selectedTroupeIndex], null, 4),
+    selectedTroupeName + ".txt",
+    JSON.stringify(troupeList[troupeNameList.indexOf(selectedTroupeName)], null, 4),
     function (err) {
       if (err) {
         console.log(err);
-      } else {
       }
     }
   );

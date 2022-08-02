@@ -33,6 +33,17 @@ class Troupe {
     return details;
   }
 
+  toJSON() {
+    return {
+      TroupeName: this.name,
+      MinimumDuration: this.minimumDuration,
+      Genre: this.genre,
+      hourlyRate: this.hourlyRate,
+      troupes: this.troupes,
+      funFact: this.funFact,
+    }
+  }
+
   countCostOfTroupeDeploying(hours){
     let total = hours * this.hourlyRateWholeTroupe();
     return total;

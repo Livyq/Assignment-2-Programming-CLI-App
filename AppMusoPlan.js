@@ -74,7 +74,7 @@ while (true) {
   }
   // option 7
   else if (choice === 6) {
-    operationFunction.readTroupeList();
+    operationFunction.readTroupeList('./troupeNamesList.txt');
     console.log("======================================");
     choice = -1;
   }
