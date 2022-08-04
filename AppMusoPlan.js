@@ -11,13 +11,13 @@ const rootMenuList = [
   "Troupe summary description",
   "Troupe detailed description",
   "Show hourly cost for a troupe",
-  "Show troupe names",
+  "Show troupe names from a file",
   "Write troupe details to a file",
   "Exit",
 ];
 
 var choice = -1;
-// user choose from eight options , choice ==> index
+// user choose from eight options , choice is index
 while (true) {
   if (choice === -1) {
     //show input to users
@@ -51,6 +51,7 @@ while (true) {
     ) {
       continue;
     } else {
+      console.log("======================================");
       choice = -1;
     }
   }
@@ -74,14 +75,14 @@ while (true) {
   }
   // option 7
   else if (choice === 6) {
-    operationFunction.readTroupeList('./troupeNamesList.txt');
+    operationFunction.readTroupeList("./troupeNamesList.txt");
     console.log("======================================");
     choice = -1;
   }
   //option 8
   else if (choice === 7) {
     operationFunction.writeTroupeListDetails();
-    
+
     console.log("======================================");
     choice = -1;
   }

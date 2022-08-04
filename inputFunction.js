@@ -114,6 +114,7 @@ function stringInput(text, condition) {
     return choiceString;
   }
 }
+
 //continue function
 /**
  * @param string display text

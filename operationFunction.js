@@ -10,7 +10,7 @@ const { Flautist } = require("./Flautist.js");
 const inputFunction = require("./inputFunction.js");
 var musicianList = new Array();
 var troupeList = new Array();
-const genreList = ["rock", "jazz", "pop"];
+const genreList = ["Rock", "Jazz", "Pop"];
 const instrumentList = ["Guitar", "Bass", "Percussion", "Flute"];
 
 // option 1_users create musicians
@@ -18,7 +18,7 @@ function createMusician() {
   let musician;
   // instrumentChoice will be any of 1, 2, 3 or 4(index)
   let instrumentChoice = inputFunction.listInput(
-    "Please select one instructment: ",
+    "Please select one instrument: ",
     instrumentList
   );
   let name = inputFunction.stringInput(
@@ -38,35 +38,31 @@ function createMusician() {
     musician = new Guitarist(
       name,
       yearOfPlaying,
-      hourlyRate,
-      instrumentList[instrumentChoice]
+      hourlyRate
     );
   } else if (instrumentChoice === 1) {
     musician = new Bassist(
       name,
       yearOfPlaying,
-      hourlyRate,
-      instrumentList[instrumentChoice]
+      hourlyRate
     );
   } else if (instrumentChoice === 2) {
     musician = new Percussionist(
       name,
       yearOfPlaying,
-      hourlyRate,
-      instrumentList[instrumentChoice]
+      hourlyRate
     );
   } else {
     musician = new Flautist(
       name,
       yearOfPlaying,
-      hourlyRate,
-      instrumentList[instrumentChoice]
+      hourlyRate
     );
   }
 
   musicianList.push(musician);
   console.log("======================================");
-  console.log(musicianList);
+  musicianList.forEach(musician => console.log(musician.details()));
 }
 
 // option 2 users create a troupe
@@ -86,7 +82,7 @@ function createTroupe() {
   const newTroupe = new Troupe(name, minimumDuration, genreList[genreIndex]);
   troupeList.push(newTroupe);
   console.log("======================================");
-  console.log(troupeList);
+  troupeList.forEach(troups => console.log(troups.details()));
 }
 
 // option 3_add musicians to a troupe, no more than 5 musicians function
@@ -99,7 +95,7 @@ function addMusicianToTroupe() {
     "Please select a troupe:  ",
     troupeNameList
   );
-  console.log("You have selected: " + troupeNameList[selectedTroupeIndex]);
+  console.log(`You have selected:\x1b[32m${troupeNameList[selectedTroupeIndex]}\x1b[0m`);
 
   let errorMessage = "Sorry, no more than 5 musicians in a troupe.";
   // while loop to add musician until user end it
@@ -110,16 +106,22 @@ function addMusicianToTroupe() {
       break;
     }
     // users choose musicians and return array index
+    console.log(`Musician List`);
     let selecetedMusicianIndex = inputFunction.listInput(
       "Please select musicians(no more than 5): ",
-      //use map function to get the all names(new array)
-      musicianList.map((musician) => musician.name)
+      //use map function to get all names(new array)
+      musicianNameList
     );
 
-    //  use class troupe/Musician method (push)
-    troupeList[selectedTroupeIndex].addMusician(
+    //  add to musician 
+    const addSuccessful = troupeList[selectedTroupeIndex].addMusician(
       musicianList[selecetedMusicianIndex]
-    );
+    ); 
+    if (!addSuccessful) {
+      console.log('ERROR, musician already exists')
+      break;
+    }
+    //add to troupe
     musicianList[selecetedMusicianIndex].addToTroupe(selectedTroupeIndex);
 
     // to check if users want to continue or not
@@ -127,13 +129,13 @@ function addMusicianToTroupe() {
       selectedTroupeIndex
     ].musicians.map((musician) => musician.name);
     console.log(
-      `You have selected troupe: ${troupeNameList[selectedTroupeIndex]} and musicians: ${displaySelectedMusicians}`
+      `You have selected troupe: \x1b[32m${troupeNameList[selectedTroupeIndex]}\x1b[0m and musicians: \x1b[32m${displaySelectedMusicians}\x1b[0m`
     );
     if (inputFunction.usercontinue("Contiue to add musicians Y or N: ")) {
       continue;
     } else {
       console.log(
-        `You have selsected ${troupeNameList[selectedTroupeIndex]} troupe and it includes musicians: ${displaySelectedMusicians}`
+        `You have selected \x1b[32m${troupeNameList[selectedTroupeIndex]}\x1b[0m troupe and it includes musicians: \x1b[32m${displaySelectedMusicians}\x1b[0m`
       );
       return;
     }
@@ -151,9 +153,9 @@ function displayTroupeSummary() {
   console.log(troupeList[selectedTroupeIndex].displaySummaryDetails());
   console.log(troupeList[selectedTroupeIndex].countInstrument());
   console.log(
-    `The troupe hourly rate is ${troupeList[
+    `The troupe hourly rate is \x1b[32m${troupeList[
       selectedTroupeIndex
-    ].hourlyRateWholeTroupe()}`
+    ].hourlyRateWholeTroupe()}\x1b[0m`
   );
 }
 
@@ -164,7 +166,6 @@ function displayDetailsDesription() {
     "Please select a troupe:  ",
     troupeNameList
   );
-  // troupeList[selectedTroupeIndex].displaySummaryDetails();
   console.log(troupeList[selectedTroupeIndex].displayDetailswithMusicians());
 }
 
@@ -183,52 +184,66 @@ function caculateCost() {
     { type: "float", min: 0.5, max: 3 }
   );
   console.log(
-    parseInt(troupeList[selectedTroupeIndex].countCostOfTroupeDeploying(hours))
+    `Total cost of Troup \x1b[32m${troupeNameList[selectedTroupeIndex]}\x1b[0m for \x1b[32m${hours}\x1b[0m hours is: \x1b[32m${parseInt(
+      troupeList[selectedTroupeIndex].countCostOfTroupeDeploying(hours)
+    )}\x1b[0m`
   );
 }
 
 //option 7_read a list of troupe names to be populated from a file
 var newTroupeList = new Array();
 function readTroupeList(filename) {
-  const data = fs.readFileSync(filename, { encoding: "utf8", flag: "r" }).split('\r\n');
-  // console.log(data);
+  while (true) {
+    selectedFileName = inputFunction.stringInput(
+      "Please put in a file name to read:  ",
+      { min: 3, max: 30 }
+    );
+
+    if (fs.existsSync(selectedFileName)) {
+      break;
+    }
+    console.log("ERROR, no this file!!");
+  }
+  const data = fs
+    .readFileSync(filename, { encoding: "utf8", flag: "r" })
+    .split("\r\n");
+
   // create objects and push to a new array
 
-  for (let element of data){
+  for (let element of data) {
     const newTroupe = new Troupe(element);
     newTroupeList.push(newTroupe);
   }
+  console.log(data);
   console.log(newTroupeList);
 }
 
-
 //option 8_write a list of the detailed descriptions for all troupes to a given file name
 function writeTroupeListDetails() {
-  const troupeNameList = troupeList.map((troupe) => troupe.name);
-  console.log(troupeNameList);
-  let selectedTroupeName = '';
-  while(true) {
-    selectedTroupeName = inputFunction.stringInput(
-      "Please put in a troupe name:  ",
-      {min: 3, max: 30}
-    );
-
-    if (troupeNameList.includes(selectedTroupeName)) {
-      break;
-    } 
-    console.log('ERROR, no this troupe!!');
-  }
-  
-  fs.writeFileSync(
-    selectedTroupeName + ".txt",
-    JSON.stringify(troupeList[troupeNameList.indexOf(selectedTroupeName)], null, 4),
-    function (err) {
-      if (err) {
-        console.log(err);
-      }
-    }
+  fileName = inputFunction.stringInput(
+    "Please put in a file name to print:  ",{min:1}
   );
-  console.log(`File written successfully`);
+
+  let allDetails = 'Now we have the following troupes: \n';
+  troupeList.forEach(troupe => {
+    allDetails = allDetails + troupe.displayDetailswithMusicians();
+  })
+
+  allDetails = allDetails + 'and the following musicians: \n';
+  musicianList.forEach(musician => allDetails += musician.details())
+  
+  allDetails = allDetails.replaceAll('\x1b[32m', '').replaceAll('\x1b[33m', '').replaceAll('\x1b[0m', '');
+
+  fs.writeFileSync(
+    fileName + ".txt",
+    allDetails,
+      function (err) {
+        if (err) {
+          console.log(err);
+        }
+      }
+    );
+    console.log(`File written successfully`);
 }
 
 module.exports = {

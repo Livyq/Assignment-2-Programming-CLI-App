@@ -1,9 +1,9 @@
 const { Musician } = require("./Musician.js");
 
 class Bassist extends Musician  {
-  constructor (name,yearOfPlaying,hourlyRate,instrument){
+  constructor (name,yearOfPlaying,hourlyRate){
     super (name,yearOfPlaying,hourlyRate)
-    this.instrument = instrument
+    this.instrument = "Bass";
   }
   displayInstrumentDetail(){
     return `The musician is a ${this.instrument} `

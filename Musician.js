@@ -3,33 +3,26 @@ class Musician {
     this.instrument = "";
     this.name = name;
     this.yearOfPlaying = yearOfPlaying;
-    this.hourlyRate = hourlyRate; 
+    this.hourlyRate = hourlyRate;
     this.troupes = [];
   }
-  
+  // push to troupe when musician is not the same
   addToTroupe(troupe) {
     if (!this.troupes.includes(troupe)) {
       this.troupes.push(troupe);
     }
   }
-  summary() {
-    return `${this.name} is a ${this.instrument} musician that has been playing for ${this.yearOfPlaying} and makes ${this.hourlyRate} per hour.`;
-  }
   details() {
-    return `${this.name} is a ${this.instrument} musician that has been playing for ${this.yearOfPlaying} and makes ${this.hourlyRate} per hour.`;
-  }
-  get funFact() {}
-
-  toJSON() {
-    return {
-      MusicianName: this.name,
-      instrument: this.instrument,
-      yearOfPlaying: this.yearOfPlaying,
-      hourlyRate: this.hourlyRate,
-      troupes: this.troupes,
-      funFact: this.funFact,
-    }
+    return `
+  ----
+  Musician Name: \x1b[33m${this.name}\x1b[0m,
+  Musician Instrument: \x1b[33m${this.instrument}\x1b[0m,
+  Year of Playing: \x1b[33m${this.yearOfPlaying}\x1b[0m,
+  Hourly Rate: \x1b[33m${this.hourlyRate}\x1b[0m, 
+  `
   }
 }
 
 module.exports = { Musician };
+
+
