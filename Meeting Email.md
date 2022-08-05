@@ -1,12 +1,12 @@
 Dear Music Management Officer,
 
-I am writing to schedule a meeting about the requirements of MusoPlan. If the time works for you, I would like to have a zoom meeting at 03.45 - 04.00 pm on 27/July/2022. Please confirm whether that works for you or if another time is better.
+I am writing to schedule a meeting about the requirements of MusoPlan. <br>If the time works for you, I would like to have a zoom meeting at 03.45 - 04.00 pm on 27/July/2022.<br> Please confirm whether that works for you or if another time is better.
 
-We’ll be discussing
-• Data structures for MusoPlan
-• Relevant class hierarchies between classes
-• Specific conditions and functionality for the program
-• Output display of the program.
+We’ll be discussing<br>
+• Data structures for MusoPlan<br>
+• Relevant class hierarchies between classes<br>
+• Specific conditions and functionality for the program<br>
+• Output display of the program.<br>
 
 I look forward to our meeting.
 
