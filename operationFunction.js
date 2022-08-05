@@ -35,34 +35,18 @@ function createMusician() {
   );
 
   if (instrumentChoice === 0) {
-    musician = new Guitarist(
-      name,
-      yearOfPlaying,
-      hourlyRate
-    );
+    musician = new Guitarist(name, yearOfPlaying, hourlyRate);
   } else if (instrumentChoice === 1) {
-    musician = new Bassist(
-      name,
-      yearOfPlaying,
-      hourlyRate
-    );
+    musician = new Bassist(name, yearOfPlaying, hourlyRate);
   } else if (instrumentChoice === 2) {
-    musician = new Percussionist(
-      name,
-      yearOfPlaying,
-      hourlyRate
-    );
+    musician = new Percussionist(name, yearOfPlaying, hourlyRate);
   } else {
-    musician = new Flautist(
-      name,
-      yearOfPlaying,
-      hourlyRate
-    );
+    musician = new Flautist(name, yearOfPlaying, hourlyRate);
   }
 
   musicianList.push(musician);
   console.log("======================================");
-  musicianList.forEach(musician => console.log(musician.details()));
+  musicianList.forEach((musician) => console.log(musician.details()));
 }
 
 // option 2 users create a troupe
@@ -82,7 +66,7 @@ function createTroupe() {
   const newTroupe = new Troupe(name, minimumDuration, genreList[genreIndex]);
   troupeList.push(newTroupe);
   console.log("======================================");
-  troupeList.forEach(troups => console.log(troups.details()));
+  troupeList.forEach((troups) => console.log(troups.details()));
 }
 
 // option 3_add musicians to a troupe, no more than 5 musicians function
@@ -95,7 +79,9 @@ function addMusicianToTroupe() {
     "Please select a troupe:  ",
     troupeNameList
   );
-  console.log(`You have selected:\x1b[32m${troupeNameList[selectedTroupeIndex]}\x1b[0m`);
+  console.log(
+    `You have selected:\x1b[32m${troupeNameList[selectedTroupeIndex]}\x1b[0m`
+  );
 
   let errorMessage = "Sorry, no more than 5 musicians in a troupe.";
   // while loop to add musician until user end it
@@ -113,16 +99,16 @@ function addMusicianToTroupe() {
       musicianNameList
     );
 
-    //  add to musician 
+    //  add  musician to troupe
     const addSuccessful = troupeList[selectedTroupeIndex].addMusician(
       musicianList[selecetedMusicianIndex]
-    ); 
+    );
     if (!addSuccessful) {
-      console.log('ERROR, musician already exists')
+      console.log("ERROR, musician already exists");
       break;
     }
-    //add to troupe
-    musicianList[selecetedMusicianIndex].addToTroupe(selectedTroupeIndex);
+    // //create for display musician's troupe
+    // musicianList[selecetedMusicianIndex].addToTroupe(selectedTroupeIndex);
 
     // to check if users want to continue or not
     const displaySelectedMusicians = troupeList[
@@ -184,7 +170,9 @@ function caculateCost() {
     { type: "float", min: 0.5, max: 3 }
   );
   console.log(
-    `Total cost of Troup \x1b[32m${troupeNameList[selectedTroupeIndex]}\x1b[0m for \x1b[32m${hours}\x1b[0m hours is: \x1b[32m${parseInt(
+    `Total cost of Troup \x1b[32m${
+      troupeNameList[selectedTroupeIndex]
+    }\x1b[0m for \x1b[32m${hours}\x1b[0m hours is: \x1b[32m${parseInt(
       troupeList[selectedTroupeIndex].countCostOfTroupeDeploying(hours)
     )}\x1b[0m`
   );
@@ -221,29 +209,30 @@ function readTroupeList(filename) {
 //option 8_write a list of the detailed descriptions for all troupes to a given file name
 function writeTroupeListDetails() {
   fileName = inputFunction.stringInput(
-    "Please put in a file name to print:  ",{min:1}
+    "Please put in a file name to print:  ",
+    { min: 1 }
   );
 
-  let allDetails = 'Now we have the following troupes: \n';
-  troupeList.forEach(troupe => {
+  let allDetails = "Now we have the following troupes: \n";
+  troupeList.forEach((troupe) => {
     allDetails = allDetails + troupe.displayDetailswithMusicians();
-  })
+  });
 
-  allDetails = allDetails + 'and the following musicians: \n';
-  musicianList.forEach(musician => allDetails += musician.details())
-  
-  allDetails = allDetails.replaceAll('\x1b[32m', '').replaceAll('\x1b[33m', '').replaceAll('\x1b[0m', '');
+  //// Print musicians details only.
+  // allDetails = allDetails + '\n\nand the following musicians:';
+  // musicianList.forEach(musician => allDetails += musician.details())
 
-  fs.writeFileSync(
-    fileName + ".txt",
-    allDetails,
-      function (err) {
-        if (err) {
-          console.log(err);
-        }
-      }
-    );
-    console.log(`File written successfully`);
+  allDetails = allDetails
+    .replaceAll("\x1b[32m", "")
+    .replaceAll("\x1b[33m", "")
+    .replaceAll("\x1b[0m", "");
+
+  fs.writeFileSync(fileName + ".txt", allDetails, function (err) {
+    if (err) {
+      console.log(err);
+    }
+  });
+  console.log(`File written successfully`);
 }
 
 module.exports = {

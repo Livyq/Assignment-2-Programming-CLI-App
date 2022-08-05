@@ -1,3 +1,5 @@
-# MUSO plan
+# MusoPlan
 
 ## Assignment 2 Repo
+
+

@@ -6,12 +6,14 @@ class Musician {
     this.hourlyRate = hourlyRate;
     this.troupes = [];
   }
-  // push to troupe when musician is not the same
-  addToTroupe(troupe) {
-    if (!this.troupes.includes(troupe)) {
-      this.troupes.push(troupe);
-    }
-  }
+
+  // //create for display musician's troupe 
+  // addToTroupe(troupe) {
+  //   if (!this.troupes.includes(troupe)) {
+  //     this.troupes.push(troupe);
+  //   }
+  // }
+
   details() {
     return `
   ----

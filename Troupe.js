@@ -27,6 +27,7 @@ class Troupe {
     ).length;
     return `Total instrument number of \x1b[32m${this.name}\x1b[0m is \x1b[32m${count}\x1b[0m.`;
   }
+  // sum of one troupe hourly rate 
   hourlyRateWholeTroupe() {
     const troupeHourlyRate = this.musicians.map(
       (musician) => musician.hourlyRate
@@ -38,6 +39,7 @@ class Troupe {
     );
     return sum;
   }
+  // sum of deploying a troupe for hours
   countCostOfTroupeDeploying(hours) {
     let total = hours * this.hourlyRateWholeTroupe();
     return total;
@@ -46,7 +48,7 @@ class Troupe {
   displaySummaryDetails() {
     return `You have selescted \x1b[32m${this.name}\x1b[0m.\n\x1b[32m${this.name}\x1b[0m is a \x1b[32m${this.genre}\x1b[0m troupe that has \x1b[32m${this.musicians.length}\x1b[0m musicians.`;
   }
-
+  // display created troupe details
   details() {
     return `Troupe Name: \x1b[32m${this.name}\x1b[0m,
 Troupe Genre: \x1b[32m${this.genre}\x1b[0m,
