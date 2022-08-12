@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1660288704589" clover="3.2.0">
+  <project timestamp="1660288704589" name="All files">
+    <metrics statements="86" coveredstatements="86" conditionals="24" coveredconditionals="24" methods="44" coveredmethods="44" elements="154" coveredelements="154" complexity="0" loc="86" ncloc="86" packages="1" files="6" classes="6"/>
+    <file name="Musician.js" path="C:\Users\olivi\OneDrive\Desktop\IT Dip\Assigment2.2\MusoPlan_testing\MusoPlan\Musician.js">
+      <metrics statements="15" coveredstatements="15" conditionals="12" coveredconditionals="12" methods="7" coveredmethods="7"/>
+      <line num="10" count="38" type="stmt"/>
+      <line num="11" count="38" type="cond" truecount="4" falsecount="0"/>
+      <line num="12" count="3" type="stmt"/>
+      <line num="14" count="35" type="stmt"/>
+      <line num="18" count="81" type="stmt"/>
+      <line num="22" count="39" type="cond" truecount="4" falsecount="0"/>
+      <line num="23" count="4" type="stmt"/>
+      <line num="27" count="35" type="stmt"/>
+      <line num="31" count="1" type="stmt"/>
+      <line num="35" count="38" type="cond" truecount="4" falsecount="0"/>
+      <line num="36" count="3" type="stmt"/>
+      <line num="40" count="35" type="stmt"/>
+      <line num="44" count="13" type="stmt"/>
+      <line num="55" count="6" type="stmt"/>
+      <line num="65" count="6" type="stmt"/>
+    </file>
+    <file name="Troupe.js" path="C:\Users\olivi\OneDrive\Desktop\IT Dip\Assigment2.2\MusoPlan_testing\MusoPlan\Troupe.js">
+      <metrics statements="47" coveredstatements="47" conditionals="12" coveredconditionals="12" methods="21" coveredmethods="21"/>
+      <line num="1" count="6" type="stmt"/>
+      <line num="2" count="6" type="stmt"/>
+      <line num="3" count="6" type="stmt"/>
+      <line num="4" count="6" type="stmt"/>
+      <line num="14" count="24" type="stmt"/>
+      <line num="17" count="16" type="cond" truecount="4" falsecount="0"/>
+      <line num="18" count="3" type="stmt"/>
+      <line num="20" count="13" type="stmt"/>
+      <line num="24" count="1" type="stmt"/>
+      <line num="28" count="10" type="cond" truecount="4" falsecount="0"/>
+      <line num="29" count="3" type="stmt"/>
+      <line num="31" count="7" type="stmt"/>
+      <line num="35" count="1" type="stmt"/>
+      <line num="39" count="12" type="stmt"/>
+      <line num="40" count="12" type="cond" truecount="2" falsecount="0"/>
+      <line num="41" count="2" type="stmt"/>
+      <line num="43" count="10" type="stmt"/>
+      <line num="47" count="2" type="stmt"/>
+      <line num="50" count="1" type="stmt"/>
+      <line num="54" count="40" type="stmt"/>
+      <line num="55" count="33" type="cond" truecount="2" falsecount="0"/>
+      <line num="56" count="1" type="stmt"/>
+      <line num="58" count="32" type="stmt"/>
+      <line num="59" count="32" type="stmt"/>
+      <line num="63" count="1" type="stmt"/>
+      <line num="64" count="4" type="stmt"/>
+      <line num="66" count="1" type="stmt"/>
+      <line num="67" count="4" type="stmt"/>
+      <line num="69" count="1" type="stmt"/>
+      <line num="73" count="3" type="stmt"/>
+      <line num="74" count="12" type="stmt"/>
+      <line num="76" count="3" type="stmt"/>
+      <line num="77" count="3" type="stmt"/>
+      <line num="78" count="12" type="stmt"/>
+      <line num="81" count="3" type="stmt"/>
+      <line num="85" count="1" type="stmt"/>
+      <line num="86" count="1" type="stmt"/>
+      <line num="90" count="1" type="stmt"/>
+      <line num="94" count="2" type="stmt"/>
+      <line num="100" count="1" type="stmt"/>
+      <line num="101" count="1" type="stmt"/>
+      <line num="112" count="1" type="stmt"/>
+      <line num="113" count="4" type="stmt"/>
+      <line num="114" count="4" type="stmt"/>
+      <line num="116" count="1" type="stmt"/>
+      <line num="120" count="22" type="stmt"/>
+      <line num="124" count="6" type="stmt"/>
+    </file>
+    <file name="bassist.js" path="C:\Users\olivi\OneDrive\Desktop\IT Dip\Assigment2.2\MusoPlan_testing\MusoPlan\bassist.js">
+      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+      <line num="1" count="6" type="stmt"/>
+      <line num="9" count="7" type="stmt"/>
+      <line num="12" count="5" type="stmt"/>
+      <line num="15" count="1" type="stmt"/>
+      <line num="18" count="1" type="stmt"/>
+      <line num="21" count="6" type="stmt"/>
+    </file>
+    <file name="flautist.js" path="C:\Users\olivi\OneDrive\Desktop\IT Dip\Assigment2.2\MusoPlan_testing\MusoPlan\flautist.js">
+      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+      <line num="1" count="6" type="stmt"/>
+      <line num="9" count="8" type="stmt"/>
+      <line num="12" count="7" type="stmt"/>
+      <line num="15" count="1" type="stmt"/>
+      <line num="18" count="1" type="stmt"/>
+      <line num="21" count="6" type="stmt"/>
+    </file>
+    <file name="guitarist.js" path="C:\Users\olivi\OneDrive\Desktop\IT Dip\Assigment2.2\MusoPlan_testing\MusoPlan\guitarist.js">
+      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+      <line num="1" count="6" type="stmt"/>
+      <line num="9" count="10" type="stmt"/>
+      <line num="12" count="9" type="stmt"/>
+      <line num="15" count="1" type="stmt"/>
+      <line num="18" count="1" type="stmt"/>
+      <line num="21" count="6" type="stmt"/>
+    </file>
+    <file name="percussionist.js" path="C:\Users\olivi\OneDrive\Desktop\IT Dip\Assigment2.2\MusoPlan_testing\MusoPlan\percussionist.js">
+      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+      <line num="1" count="6" type="stmt"/>
+      <line num="9" count="7" type="stmt"/>
+      <line num="12" count="5" type="stmt"/>
+      <line num="15" count="1" type="stmt"/>
+      <line num="18" count="1" type="stmt"/>
+      <line num="21" count="6" type="stmt"/>
+    </file>
+  </project>
+</coverage>
