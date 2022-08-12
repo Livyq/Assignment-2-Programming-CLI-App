@@ -15,7 +15,6 @@ const instrumentList = ["Guitar", "Bass", "Percussion", "Flute"];
 
 // option 1_users create musicians
 function createMusician() {
-  let musician;
   // instrumentChoice will be any of 1, 2, 3 or 4(index)
   let instrumentChoice = inputFunction.listInput(
     "Please select one instrument: ",
@@ -27,22 +26,26 @@ function createMusician() {
   );
   let yearOfPlaying = inputFunction.numberInput(
     "Please put in years of playing(minimum 0.1): ",
-    { type: "float", min: 0.1 }
+    { type: "float", min: 0.1, max: 100 }
   );
   let hourlyRate = inputFunction.numberInput(
     "Please put in hourly rate(more than 50): ",
-    { type: "integer", min: 51 }
+    { type: "integer", min: 51, max: 10000000 }
   );
 
   if (instrumentChoice === 0) {
-    musician = new Guitarist(name, yearOfPlaying, hourlyRate);
+    musician = new Guitarist();
   } else if (instrumentChoice === 1) {
-    musician = new Bassist(name, yearOfPlaying, hourlyRate);
+    musician = new Bassist();
   } else if (instrumentChoice === 2) {
-    musician = new Percussionist(name, yearOfPlaying, hourlyRate);
+    musician = new Percussionist();
   } else {
-    musician = new Flautist(name, yearOfPlaying, hourlyRate);
+    musician = new Flautist();
   }
+  musician.name = name;
+  musician.yearOfPlaying = yearOfPlaying;
+  musician.hourlyRate = hourlyRate;
+  musician.instrument = instrumentList[instrumentChoice];
 
   musicianList.push(musician);
   console.log("======================================");
@@ -63,7 +66,10 @@ function createTroupe() {
     "Please select one genre: ",
     genreList
   );
-  const newTroupe = new Troupe(name, minimumDuration, genreList[genreIndex]);
+  const newTroupe = new Troupe();
+  newTroupe.name = name;
+  newTroupe.minimumDuration = minimumDuration;
+  newTroupe.genre = genreList[genreIndex];
   troupeList.push(newTroupe);
   console.log("======================================");
   troupeList.forEach((troups) => console.log(troups.details()));
@@ -71,7 +77,12 @@ function createTroupe() {
 
 // option 3_add musicians to a troupe, no more than 5 musicians function
 function addMusicianToTroupe() {
+
   //display troupe names in a list
+  if (troupeList.length == 0) {
+    console.log("Please create a troupe.");
+    return 'empty';
+  }
   const troupeNameList = troupeList.map((troupe) => troupe.name);
   const musicianNameList = musicianList.map((musician) => musician.name);
   // users choose a troupe and return array index
@@ -82,6 +93,10 @@ function addMusicianToTroupe() {
   console.log(
     `You have selected:\x1b[32m${troupeNameList[selectedTroupeIndex]}\x1b[0m`
   );
+  if (musicianList.length == 0) {
+    console.log("Please create a musician.");
+    return 'empty';
+  }
 
   let errorMessage = "Sorry, no more than 5 musicians in a troupe.";
   // while loop to add musician until user end it
@@ -93,6 +108,7 @@ function addMusicianToTroupe() {
     }
     // users choose musicians and return array index
     console.log(`Musician List`);
+
     let selecetedMusicianIndex = inputFunction.listInput(
       "Please select musicians(no more than 5): ",
       //use map function to get all names(new array)
@@ -213,7 +229,7 @@ function writeTroupeListDetails() {
     { min: 1 }
   );
 
-  let allDetails = "Now we have the following troupes: \n";
+  let allDetails = "Now we have the following troupes:";
   troupeList.forEach((troupe) => {
     allDetails = allDetails + troupe.displayDetailswithMusicians();
   });

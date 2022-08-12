@@ -42,17 +42,21 @@ while (true) {
   }
   //option 3 add musicians to a troupe
   else if (choice === 2) {
-    operationFunction.addMusicianToTroupe();
+    let empty = operationFunction.addMusicianToTroupe();
     console.log("======================================");
-    if (
-      inputFunction.usercontinue(
-        "Do you want to select another troupe Y or N: "
-      )
-    ) {
-      continue;
-    } else {
-      console.log("======================================");
+    if (empty === "empty") {
       choice = -1;
+    } else {
+      if (
+        inputFunction.usercontinue(
+          "Do you want to select another troupe Y or N: "
+        )
+      ) {
+        continue;
+      } else {
+        console.log("======================================");
+        choice = -1;
+      }
     }
   }
   //option 4
