@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="38" failures="0" errors="0" time="1.274">
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2022-08-12T07:18:23" time="0.426" tests="20">
+    <testcase classname=" Test troupe name for 2 characters" name=" Test troupe name for 2 characters" time="0.012">
+    </testcase>
+    <testcase classname=" Test troupe name for 5 characters" name=" Test troupe name for 5 characters" time="0.001">
+    </testcase>
+    <testcase classname=" Test troupe name for empty value" name=" Test troupe name for empty value" time="0.001">
+    </testcase>
+    <testcase classname=" Test troupe name for more than 30 characters" name=" Test troupe name for more than 30 characters" time="0">
+    </testcase>
+    <testcase classname=" Test troupe genre with rock" name=" Test troupe genre with rock" time="0">
+    </testcase>
+    <testcase classname=" Test troupe genre with jazz" name=" Test troupe genre with jazz" time="0">
+    </testcase>
+    <testcase classname=" Test troupe genre with empyt value" name=" Test troupe genre with empyt value" time="0">
+    </testcase>
+    <testcase classname=" Test troupe genre with number 30" name=" Test troupe genre with number 30" time="0.001">
+    </testcase>
+    <testcase classname=" Test troupe minimum duration with 0.5" name=" Test troupe minimum duration with 0.5" time="0">
+    </testcase>
+    <testcase classname=" Test minimum duration  with -10" name=" Test minimum duration  with -10" time="0">
+    </testcase>
+    <testcase classname=" Test minimum duration  with empty value" name=" Test minimum duration  with empty value" time="0">
+    </testcase>
+    <testcase classname=" Testing minimum duration  with 30 hours" name=" Testing minimum duration  with 30 hours" time="0.001">
+    </testcase>
+    <testcase classname=" Test troupe add musicians" name=" Test troupe add musicians" time="0.022">
+    </testcase>
+    <testcase classname=" Test troupe class count instrument " name=" Test troupe class count instrument " time="0.007">
+    </testcase>
+    <testcase classname=" Test troupe hourlyRateWholeTroupe " name=" Test troupe hourlyRateWholeTroupe " time="0.006">
+    </testcase>
+    <testcase classname=" Test troupe countCostOfTroupeDeploying " name=" Test troupe countCostOfTroupeDeploying " time="0.008">
+    </testcase>
+    <testcase classname=" Test troupe class displaySummaryDetails " name=" Test troupe class displaySummaryDetails " time="0.005">
+    </testcase>
+    <testcase classname="  Test troupe class details " name="  Test troupe class details " time="0.005">
+    </testcase>
+    <testcase classname=" Test troupe class displaySummaryDetails " name=" Test troupe class displaySummaryDetails " time="0.006">
+    </testcase>
+    <testcase classname=" Test troupe class countMusicianType " name=" Test troupe class countMusicianType " time="0.004">
+    </testcase>
+  </testsuite>
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2022-08-12T07:18:23" time="0.154" tests="14">
+    <testcase classname=" Test musician name for 2 characters" name=" Test musician name for 2 characters" time="0.012">
+    </testcase>
+    <testcase classname=" Test musician name for 3 characters" name=" Test musician name for 3 characters" time="0.002">
+    </testcase>
+    <testcase classname=" Test musician name for more than 30 characters" name=" Test musician name for more than 30 characters" time="0.003">
+    </testcase>
+    <testcase classname=" Test musician name for empty value" name=" Test musician name for empty value" time="0.002">
+    </testcase>
+    <testcase classname=" Test musician year of playing with a negative number" name=" Test musician year of playing with a negative number" time="0.001">
+    </testcase>
+    <testcase classname=" Test musician year of playing with a non-negative number" name=" Test musician year of playing with a non-negative number" time="0">
+    </testcase>
+    <testcase classname=" Test musician year of playing with a non-negative number" name=" Test musician year of playing with a non-negative number" time="0.001">
+    </testcase>
+    <testcase classname=" Test musician year of playing with zero" name=" Test musician year of playing with zero" time="0">
+    </testcase>
+    <testcase classname=" Test musician year of for empty value" name=" Test musician year of for empty value" time="0">
+    </testcase>
+    <testcase classname=" Test musician hourly rate 50" name=" Test musician hourly rate 50" time="0.001">
+    </testcase>
+    <testcase classname=" Test musician hourly rate 100" name=" Test musician hourly rate 100" time="0">
+    </testcase>
+    <testcase classname=" Test musician hourly rate 10000000000" name=" Test musician hourly rate 10000000000" time="0.001">
+    </testcase>
+    <testcase classname=" Test musician hourly rate for empty value" name=" Test musician hourly rate for empty value" time="0">
+    </testcase>
+    <testcase classname=" Test display musician details" name=" Test display musician details" time="0.002">
+    </testcase>
+  </testsuite>
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2022-08-12T07:18:23" time="0.12" tests="1">
+    <testcase classname=" Test Bassist method" name=" Test Bassist method" time="0.007">
+    </testcase>
+  </testsuite>
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2022-08-12T07:18:24" time="0.124" tests="1">
+    <testcase classname=" Test Bassist method" name=" Test Bassist method" time="0.004">
+    </testcase>
+  </testsuite>
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2022-08-12T07:18:24" time="0.115" tests="1">
+    <testcase classname=" Test Bassist method" name=" Test Bassist method" time="0.004">
+    </testcase>
+  </testsuite>
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2022-08-12T07:18:24" time="0.116" tests="1">
+    <testcase classname=" Test Bassist method" name=" Test Bassist method" time="0.004">
+    </testcase>
+  </testsuite>
+</testsuites>
