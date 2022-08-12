@@ -21,3 +21,7 @@ npm install
 ``` sh
 node AppMusoPlan.js 
 ```
+## Assignment 2.2
+
+- Testing requirements report/test plan/test progress report can be found in documentation folder.
+- Six test.js files are included.
