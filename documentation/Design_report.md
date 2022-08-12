@@ -1,9 +1,9 @@
 # Summary Details about the proposed software
 ## Classes 
-### Musiciaian Class 
+### Musician Class 
 1. Properties
     * Name (between 3 and characters)
-    * Yeas of playing 
+    * Years of playing 
     * Hourly rate 
     * instrument
     * troupe
